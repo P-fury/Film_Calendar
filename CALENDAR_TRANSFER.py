@@ -9,7 +9,7 @@ import locale
 locale.setlocale(locale.LC_TIME, 'pl_PL.UTF-8')
 
 # Ścieżka do pliku PDF
-pdf_path = 'CALENDAR_FILES/(cz-b) FURIOZA 2 - kalendarz na 08.06.2024.pdf'
+pdf_path = '*** your pdf file ****'
 
 # Wyciągnij tekst z PDF
 pdf_text = extract_text(pdf_path)
@@ -31,7 +31,7 @@ for match in koniec_pattern.finditer(pdf_text):
 
     # Konwersja daty
     date = convert_date(date_str)
-    event_name = f"Furioza_dzien {day_number}"
+    event_name = f" **** {day_number}"
 
     event = {
         "date": date,
@@ -53,7 +53,7 @@ for event in events:
     cal.events.add(cal_event)
 
 # Zapisanie do pliku .ics
-ics_path = 'ICALENDAR_FILE/Furioza_Kalendarz.ics'
+ics_path = '*** your file name ***'
 with open(ics_path, 'w') as f:
     f.writelines(cal)
 
